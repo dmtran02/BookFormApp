@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BooksFormApp.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,14 +24,22 @@ namespace BooksFormApp.Classes
             InternalList = new List<BookClass>(3);
         }
 
-        public bool findBookInList(string keyword)
+        public bool findKeywordInList(string keyword)
         {
             Boolean success = false;
-            while (success == false && index < InternalList.Count)
+            while(success == false && index < InternalList.Count)
             {
-                if(InternalList[index].)
+                if(InternalList[index].checkBookKeyword(keyword) == true)
+                {
+                    success = true;
+                    return true;
+                }
+                else
+                {
+                    index++;
+                }
             }
-
+            index = 0;
             return false;
         }
     }
